@@ -1,0 +1,56 @@
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fane Laye Diare</title>
+  <!--    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">-->
+
+</head>
+<body>
+
+<main class="main-content">
+  <header class="dashboard-header">
+    <div class="header-search">
+      <input type="text" placeholder="Rechercher...">
+    </div>
+    <div class="header-actions">
+      <div class="notification-container">
+        <i class="fas fa-bell"></i>
+        <span class="notification-badge">3</span>
+      </div>
+      <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Profile" class="profile-avatar">
+    </div>
+  </header>
+
+  <section class="stats-grid" [ngModel]="moderateurs">
+    <div class="stat-card" *ngFor="let moder of moderateurs" routerLink="details">
+      <div class="stat-icon">
+        <i class="fas fa-chart-line"></i>
+      </div>
+      <div class="stat-content">
+        <p>Ligne: {{moder.id}}</p>
+        <h3>{{moder.nom}}</h3>
+        <h3>{{moder.prenom}}</h3>
+<!--        <p [(ngModel)]="idLigne">Ligne: {{ligne.id}}</p>-->
+      </div>
+    </div>
+
+  </section>
+
+  <section class="charts-section">
+    <div class="chart-container">
+      <h2>Ventes Mensuelles</h2>
+      <canvas id="salesChart"></canvas>
+    </div>
+    <div class="chart-container">
+      <h2>Croissance des Revenus</h2>
+      <canvas id="revenueChart"></canvas>
+    </div>
+  </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</body>
+</html>

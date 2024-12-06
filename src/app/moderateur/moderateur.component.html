@@ -1,0 +1,124 @@
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fane Laye Diare</title>
+  <!--    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">-->
+</head>
+<body>
+
+<main class="main-content">
+  <header class="dashboard-header">
+    <div class="header-search">
+      <input type="text" placeholder="Rechercher...">
+    </div>
+    <div class="header-actions">
+      <div class="notification-container">
+        <i class="fas fa-bell"></i>
+        <span class="notification-badge">3</span>
+      </div>
+      <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Profile" class="profile-avatar">
+    </div>
+  </header>
+
+  <section class="users-table charts-section w-auto">
+    <h2>Liste des Moderateurs</h2>
+    <table>
+      <thead>
+      <tr>
+        <th>Utilisateur</th>
+        <th>Rôle</th>
+        <th>Statut</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody [ngModel]="moderateurs">
+      <tr *ngFor="let moder of moderateurs">
+        <td>
+          <div class="user-profile">
+            <img src="https://randomuser.me/api/portraits/women/50.jpg" alt="Marie Dupont">
+            <span>{{moder.prenom+" "+moder.nom}}</span>
+          </div>
+        </td>
+        <td>Admin</td>
+        <td>
+          <span class="status-badge active">Actif</span>
+        </td>
+        <td>
+          <div class="action-buttons">
+            <button class="btn-edit" (click)="editerModerateur(moder.id)">Modifier</button>
+            <button class="btn-delete" (click)="supprimerModerateur(moder.id)">Supprimer</button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!--<script>-->
+<!--  // Graphique des ventes-->
+<!--  const salesCtx = document.getElementById('salesChart').getContext('2d');-->
+<!--  new Chart(salesCtx, {-->
+<!--    type: 'bar',-->
+<!--    data: {-->
+<!--      labels: ['Jan', 'Fev', 'Mar', 'Avr', 'Mai'],-->
+<!--      datasets: [{-->
+<!--        label: 'Ventes',-->
+<!--        data: [4000, 3000, 2000, 2780, 1890],-->
+<!--        backgroundColor: 'rgba(106, 90, 205, 0.7)',-->
+<!--        borderColor: 'rgba(106, 90, 205, 1)',-->
+<!--        borderWidth: 1-->
+<!--      }, {-->
+<!--        label: 'Visiteurs',-->
+<!--        data: [2400, 1398, 9800, 3908, 4800],-->
+<!--        backgroundColor: 'rgba(32, 178, 170, 0.7)',-->
+<!--        borderColor: 'rgba(32, 178, 170, 1)',-->
+<!--        borderWidth: 1-->
+<!--      }]-->
+<!--    },-->
+<!--    options: {-->
+<!--      responsive: true,-->
+<!--      scales: {-->
+<!--        y: {-->
+<!--          beginAtZero: true-->
+<!--        }-->
+<!--      }-->
+<!--    }-->
+<!--  });-->
+
+<!--  // Graphique de croissance des revenus-->
+<!--  const revenueCtx = document.getElementById('revenueChart').getContext('2d');-->
+<!--  new Chart(revenueCtx, {-->
+<!--    type: 'line',-->
+<!--    data: {-->
+<!--      labels: ['Jan', 'Fev', 'Mar', 'Avr', 'Mai'],-->
+<!--      datasets: [{-->
+<!--        label: 'Revenus',-->
+<!--        data: [4000, 3000, 2000, 2780, 1890],-->
+<!--        borderColor: 'rgba(106, 90, 205, 1)',-->
+<!--        backgroundColor: 'rgba(106, 90, 205, 0.2)',-->
+<!--        tension: 0.4-->
+<!--      }]-->
+<!--    },-->
+<!--    options: {-->
+<!--      responsive: true,-->
+<!--      scales: {-->
+<!--        y: {-->
+<!--          beginAtZero: true-->
+<!--        }-->
+<!--      }-->
+<!--    }-->
+<!--  });-->
+
+<!--  // Gestion du toggle de la sidebar-->
+<!--  const sidebar = document.querySelector('.sidebar');-->
+<!--  const toggleButton = document.getElementById('toggleSidebar');-->
+
+<!--  toggleButton.addEventListener('click', () => {-->
+<!--    sidebar.classList.toggle('collapsed');-->
+<!--  });-->
+<!--</script>-->
+</body>
+</html>
