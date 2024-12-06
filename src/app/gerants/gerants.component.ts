@@ -17,8 +17,6 @@ export class GerantsComponent implements OnInit {
   lignes: Array<Lignes>= [];
   moderateurs: Array<Moderateur> =[];
   ligne!: Lignes;
-  idLigne: any;
-  idModerateur = 1;
   idGerant =1;
 
   constructor(private lignesservice: LignesService,
@@ -38,26 +36,23 @@ export class GerantsComponent implements OnInit {
       }
     )
 
-    this.lignesservice.listLignes(this.idModerateur).subscribe({
-      next: data => {
-        this.lignes = data;
-      },
-      error: error => {
-        console.error(error);
-      }
-    })
-
+    for(let item of this.moderateurs){
+      this.lignes.push(this.uneLigneC(item.id))
+      console.log(item)
+    }
+    console.log(this.lignes);
   }
-  uneLigneC(moderateurId:number){
+
+  uneLigneC(moderateurId:number):Lignes{
     this.lignesservice.uneLigne(moderateurId).subscribe({
       next: data => {
         this.ligne=data
-        console.log(this.ligne)
       },
       error:err => {
         console.log(err)
       }
     })
+    return this.ligne
   }
 
 

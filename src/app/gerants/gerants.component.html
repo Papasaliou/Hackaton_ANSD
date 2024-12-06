@@ -22,16 +22,13 @@
     </div>
   </header>
 
-  <section class="stats-grid" [ngModel]="moderateurs">
-    <div class="stat-card" *ngFor="let moder of moderateurs" routerLink="details">
+  <section class="stats-grid" [ngModel]="lignes">
+    <div class="stat-card" *ngFor="let l of lignes" routerLink="details">
       <div class="stat-icon">
         <i class="fas fa-chart-line"></i>
       </div>
       <div class="stat-content">
-        <p>Ligne: {{moder.id}}</p>
-        <h3>{{moder.nom}}</h3>
-        <h3>{{moder.prenom}}</h3>
-<!--        <p [(ngModel)]="idLigne">Ligne: {{ligne.id}}</p>-->
+        <p>Ligne: {{l.id}}</p>
       </div>
     </div>
 

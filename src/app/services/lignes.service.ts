@@ -10,13 +10,13 @@ import {Lignes} from "../../Models/Lignes";
 export class LignesService {
 
   constructor(private http: HttpClient) { }
-
-  listLignes(idmoderateur:number){
-    return this.http.get<Lignes[]>(Apiconfig.gatewayUrl+Apiconfig.ligneService+"moderateur?"+idmoderateur);
-  }
+  //
+  // listLignes(idmoderateur:number){
+  //   return this.http.get<Lignes[]>(Apiconfig.gatewayUrl+Apiconfig.ligneService+"moderateur?"+idmoderateur);
+  // }
 
   uneLigne(idModerateur:number){
-    return this.http.get<Lignes>(Apiconfig.gatewayUrl+Apiconfig.ligneService+"moderateur/"+idModerateur,{})
+    return this.http.get<Lignes>(Apiconfig.gatewayUrl+Apiconfig.ligneService+"moderateur/"+idModerateur)
   }
 
 
