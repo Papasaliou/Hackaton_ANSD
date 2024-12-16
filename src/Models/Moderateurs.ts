@@ -1,8 +1,11 @@
+import {Lignes} from "./Lignes";
+
 export class Moderateur {
   id!:number;
-  nom!: string;
   prenom!: string;
+  nom!: string;
   email!: string;
   telephone!: string;
   password!:string;
+  lignes!: Lignes;
 }

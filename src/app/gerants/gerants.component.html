@@ -3,8 +3,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fane Laye Diare</title>
-  <!--    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">-->
-
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -22,16 +21,17 @@
     </div>
   </header>
 
-  <section class="stats-grid" [ngModel]="lignes">
-    <div class="stat-card" *ngFor="let l of lignes" routerLink="details">
+  <section class="stats-grid">
+    <div class="stat-card btn btn-info" *ngFor="let l of lignes" (click)="navigateToDetails(l.id)">
       <div class="stat-icon">
-        <i class="fas fa-chart-line"></i>
+<!--        <i class="fas fa-chart-line"></i>-->
+        <p></p>
       </div>
       <div class="stat-content">
-        <p>Ligne: {{l.id}}</p>
+        <h1 *ngIf="l && l.numero">Ligne {{l.numero}}</h1>
+        <p *ngIf="l">{{l.depart+"--"+l.arrivee}}</p>
       </div>
     </div>
-
   </section>
 
   <section class="charts-section">
@@ -47,7 +47,6 @@
 
 </main>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </body>
 </html>

@@ -1,1 +1,52 @@
-<p>details-ligne works!</p>
+<div *ngIf="ligne" class="ligne-details min-h-screen w-screen bg-blue-500 p-6 flex flex-col">
+  <div class="header mb-6">
+    <div class="line-number bg-blue-600 inline-block px-4 py-2 rounded-full text-2xl font-bold">
+      <h1><span class="badge text-bg-info">Ligne: {{ ligne.numero }} </span></h1>
+    </div>
+  </div>
+
+  <div class="route-info grid grid-cols-2 gap-4 mb-6">
+    <div class="depart flex items-center">
+      <i class="material-icons text-green-500 mr-3"></i>
+      <span class="font-medium">{{ ligne.depart }}</span>
+    </div>
+    <div class="arrival flex items-center">
+      <i class="material-icons text-red-500 mr-3">finish</i>
+      <span class="font-medium">{{ ligne.arrivee }}</span>
+    </div>
+  </div>
+
+  <div class="stops-section flex-grow w-full">
+    <h2 class="text-xl font-semibold mb-4 text-white">Arrêts de la Ligne</h2>
+
+    <div *ngIf="arrets && arrets.length > 0" class="stops-container grid grid-cols-5 gap-4 w-full row col-lg-12">
+      <div
+        *ngFor="let arret of arrets; let i = index"
+        class="stop-card p-3 rounded-lg shadow-sm transition-all hover:shadow-md"
+        [ngStyle]="{
+          'background-color': getRandomColor(i)
+        }"
+      >
+        <div class="flex items-center">
+          <div class="stop-marker w-3 h-3 rounded-full mr-3"
+               [ngStyle]="{'background-color': getRandomColor(i)}">
+          </div>
+          <span class="text-white font-medium text-sm whitespace-nowrap">{{ arret.adresse }}</span>
+        </div>
+      </div>
+    </div>
+
+    <p *ngIf="!arrets || arrets.length === 0" class="text-gray-300">
+      Aucun arrêt disponible pour cette ligne.
+    </p>
+  </div>
+
+  <div class="map-section mt-8 w-full">
+    <h2 class="text-xl font-semibold mb-4 text-white">Itinéraire de la Ligne</h2>
+    <div class="map-container bg-gray-200 rounded-lg h-96 w-full">
+      <div class="flex items-center justify-center h-full text-gray-500">
+        {{map}}
+      </div>
+    </div>
+  </div>
+</div>

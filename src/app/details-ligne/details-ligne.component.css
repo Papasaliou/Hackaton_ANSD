@@ -1,0 +1,40 @@
+.ligne-details {
+  display: flex;
+  flex-direction: column; /* Empile les sections verticalement */
+  height: 100vh; /* Prend toute la hauteur de la page */
+  width: 100vw; /* Prend toute la largeur de la page */
+  background-color: #3b82f6; /* Bleu pour la section */
+  box-sizing: border-box; /* Inclut le padding dans les dimensions */
+}
+
+.stops-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 colonnes égales */
+  gap: 1rem; /* Espacement entre les items */
+  width: 100%; /* Prend toute la largeur disponible */
+  margin: 0 auto; /* Centre le conteneur */
+}
+
+.stop-card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #4caf50; /* Couleur par défaut */
+  color: white;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.stop-card:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre au survol */
+}
+
+.map-container {
+  background-color: #e5e7eb; /* Gris clair pour la carte */
+  border-radius: 0.5rem;
+  height: 24rem; /* Hauteur fixe */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

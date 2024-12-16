@@ -13,4 +13,5 @@ export class GerantsService {
   listModerateur(idGerant:number){
     return this.http.get<Moderateur[]>(Apiconfig.gatewayUrl+Apiconfig.userService+"moderateursbyGerant/"+idGerant);
   }
+
 }
